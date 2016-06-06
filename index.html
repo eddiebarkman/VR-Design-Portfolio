@@ -1,0 +1,883 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="images/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="images/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="images/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="images/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="images/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="images/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="images/icons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+    <title>Eddie VR</title>
+    <link href="css/style.css" rel='stylesheet' type='text/css'>
+    <script src="js/aframe.js"></script>
+    <script src="js/aframe-no-click-look-controls.js"></script>
+    
+
+</head>
+
+<body>
+
+
+    <a-scene>
+        <a-assets>
+            <a-asset-item id="glasses-obj" src="images/glasses.obj"></a-asset-item>
+            <a-asset-item id="glasses-mtl" src="images/glasses.mtl"></a-asset-item>
+
+            <img id="stars" src="images/stars.jpg">
+            <img id="begin" src="images/ui/begin.png">
+            <img id="aboutIcon" src="images/ui/aboutIcon.png">
+            <img id="aboutVRIcon" src="images/ui/aboutVRIcon.png">
+            <img id="portfolioIcon" src="images/ui/portfolioIcon.png">
+            <img id="restartButton" src="images/restartButton.png">
+            <img id="welcomeText" src="images/welcomeText.png">
+            <img id="tutorialText" src="images/tutorial.png">
+            <img id="flatSite" src="images/flatSite.png">
+            <img id="logo" src="images/logoTextless.png">
+            <video id="eddie-vid" loop="true" src="images/eddieVid.mp4" webkit-playsinline>
+            <img id="meStanding" src="images/me.png">
+                
+                <!--About VR Images -->
+                <img id="VRPicture" src="images/VR.jpg">
+                <img id="VRCaption" src="images/VRCaption.png">
+                
+                <!--About Me Images -->
+                
+                <img id="eddieBubble" src="images/eddieBarkmanBubble.png">
+                <img id="ArtBubble" src="images/artistBubble.png">
+                <img id="leftArrow" src="images/goLeft.png">
+                <img id="redCircle" src="images/redCircle.png">
+                <img id="redCircle2" src="images/redCircle2.png">
+                <img id="aboutMeText" src="images/aboutMeText.png">
+                
+                <!--Menu Bubbles-->
+                <img id="aboutBubble" src="images/aboutMeBubble.png">
+                <img id="aboutVRBubble" src="images/aboutVRBubble.png">
+                <img id="portfolioBubble" src="images/portBubble.png">
+
+                <!--Portfolio Items-->
+                <img id="closeButtonImg" src="images/ui/closeButton.png">
+                <img id="resetImg" src="images/ui/resetButton.png">
+
+                <img id="webIcon" src="images/ui/webIcon.png">
+                <img id="mobileIcon" src="images/ui/mobileIcon.png">
+                <img id="illustrationIcon" src="images/ui/illustrationIcon.png">
+                <!--Web Pages-->
+                <img id="site1" src="images/portfolio/site1.jpg">
+                <img id="site2" src="images/portfolio/site2.jpg">
+                <img id="site3" src="images/portfolio/site3.jpg">
+                <img id="site4" src="images/portfolio/site4.jpg">
+                <img id="site5" src="images/portfolio/site5.jpg">
+                
+                <!--Mobile Pages-->
+                <img id="mobile1" src="images/portfolio/mobile1.png">
+                <img id="mobile2" src="images/portfolio/mobile2.png">
+                <img id="mobile3" src="images/portfolio/mobile3.png">
+                <img id="mobile4" src="images/portfolio/mobile4.png">
+                <img id="mobile5" src="images/portfolio/mobile5.png">
+                <img id="mobile6" src="images/portfolio/mobile6.png">
+                <img id="mobile7" src="images/portfolio/mobile7.png">
+                
+                <!--Illustration Pages-->
+                <img id="illustration1" src="images/portfolio/illustration9.jpg">
+                <img id="illustration2" src="images/portfolio/illustration2.jpg">
+                <img id="illustration3" src="images/portfolio/illustration3.jpg">
+                <img id="illustration4" src="images/portfolio/illustration4.jpg">
+                <img id="illustration5" src="images/portfolio/illustration5.jpg">
+                <img id="illustration6" src="images/portfolio/illustration6.jpg">
+                <img id="illustration7" src="images/portfolio/illustration7.jpg">   
+                <img id="illustration8" src="images/portfolio/illustration8.jpg"> 
+                
+
+        </a-assets>
+
+        <!-- Camera -->
+        <a-entity camera look-controls>
+            <a-entity cursor="fuse: true; timeout: 700; maxDistance: 12;" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02" material="color: red; opacity:0.5;" position="0 0 -2">
+            </a-entity>
+
+
+            <a-entity id="clickerShape" geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.06" material="color: red; opacity:0.5;" scale="1 1 1" position="0 0 -2">
+
+                <a-animation begin="clickStart" end="clickEnd" attribute="scale" from="1 1 1" to=".3 .3 .3" dur="500" easing="linear" fill="none" repeat="0"></a-animation>
+                <a-animation begin="clickEnd" attribute="scale" from=".3 .3 .3" to="1 1 1" dur="50" easing="linear" fill="forward" repeat="0"></a-animation>
+            </a-entity>
+
+
+
+            <!--This amazing little thing makes plane zoom into the users view to provide a transition to the next scene rather than a hard cut-->
+            <!--Sorry I'm really excited right now! I spent hours trying to get this to work right-->
+            <a-entity id="teleporter" visible="false" geometry="primitive: plane;" material="color: #030303; opacity:1.0;" position="0 0 -1.5" scale=".001 .001 .001">
+                <a-animation begin="teleport" dur="1000" attribute="scale" from=".001 .001 .001" to="5 5 5"></a-animation>
+                <a-animation begin="teleport2" dur="1000" attribute="scale" from="5 5 5" to=".001 .001 .001"></a-animation>
+            </a-entity>
+        </a-entity>
+
+
+        <!--First scene with start button-->
+        <a-entity id="scene1" visible="true">
+
+            <a-sky color="white">
+                <a-animation attribute="rotation" to="0 360 0" dur="100" easing="linear" fill="forwards" repeat="indefinite">
+                </a-animation>
+            </a-sky>
+
+            <!--            <a-video src="#eddie-vid" width="16" height="9" position="-15 0 0" rotation="0 90 0"></a-video>-->
+
+            <!--            <a-entity obj-model="obj: #glasses-obj; mtl: #glasses-mtl" position="5 0 0" rotation="90 90 -90"></a-entity>-->
+
+            <a-image src="#flatSite" height="4" width="8" position="0 0 -2.4"></a-image>
+            <a-image src="#tutorialText" height="0.5" width="8" position="0 -2.4 -2.4" rotation="-30 0 0"></a-image>
+
+
+            <a-image class="button" id="button1" src="#begin" height=".5" width=".5" opacity="0.9" position="0 0.4 -2" rotation="0 0 0">
+                <a-animation begin="button1Enter" dur="500" attribute="position" from="0 0.4 -2" to="0 0.4 -1.9"></a-animation>
+                <a-animation begin="button1Leave" dur="500" attribute="position" from="0 0.4 -1.9" to="0 0.4 -2"></a-animation>
+            </a-image>
+
+
+
+
+        </a-entity>
+        <!-- Scene 1 end-->
+
+
+
+        <!--About VR Scene-->
+        <a-entity id="scene2" visible="false">
+
+         <a-image id="VRPic" src="#VRPicture" width="2" height="1" position="-0.6 0.4 1.5" rotation="0 180 0">
+        <a-animation begin="imageGlance" attribute="rotation" dur="1000" from="0 180 0" to="0 160 0" easing="ease-out" repeat="0"></a-animation>
+        <a-animation begin="imageGlanceReverse" attribute="rotation" dur="1000" from="0 160 0" to="0 180 0" easing="ease-out" repeat="0"></a-animation>
+        </a-image>
+            <a-image src="#VRCaption" width="4" height="4" position="0 0 2" rotation="0 180 0"></a-image>
+            
+            
+            <a-image id="startImg" src="#logo" width="15" height="6" position="0 230 -200">
+                <a-animation begin="start" attribute="position" dur="3000" from="0 300 -200" to="0 4 -10" easing="ease-out"></a-animation>
+                <a-animation begin="end" attribute="position" dur="3000" from="0 4 -10" to="0 300 -200" easing="ease-out"></a-animation>
+            </a-image>
+
+
+            <a-sky src="#stars">
+
+
+                <a-animation attribute="rotation" to="0 360 0" dur="150000" easing="linear" fill="forwards" repeat="indefinite">
+                </a-animation>
+
+
+            </a-sky>
+
+            <a-sky src="#stars">
+
+
+                <a-animation attribute="rotation" to="0 -360 0" dur="150000" easing="linear" fill="forwards" repeat="indefinite">
+                </a-animation>
+
+
+            </a-sky>
+
+   <a-image id="VRBubble" src="#aboutVRBubble" height="0.6" width="2" position="1.05 -15 -2.7" rotation="0 0 0" visibility="true">
+
+                <a-animation begin="2000, VRBubbleOpen" attribute="position" from="1.05 -15 -2.7" to="1.05 -0.2 -2.7" dur="1200" easing="ease-out" fill="forwards" repeat="0"></a-animation>
+                <a-animation begin="VRBubbleClose" attribute="position" from="1.05 -0.2 -2.7" to="1.05 -15 -2.7" dur="1200" easing="ease-out" fill="forwards" repeat="0"></a-animation>
+       
+            </a-image>
+            
+            
+            
+        </a-entity>
+            
+            
+        <!--About Me Scene-->
+        <a-entity id="scene4" visible="false">
+            
+             <a-image id="redPortrait" src="#redCircle2" width="5" height="5" position="-4 0 2" rotation="0 120 0">
+            <a-animation attribute="rotate" from="0 120 0" to="0 140 0" dur="400" easing="ease-out" fill="both" repeat="indefinite"></a-animation>
+            <a-event name="mouseenter" SRC="#redCircle"></a-event>
+            <a-event name="mouseleave" SRC="#redCircle2"></a-event>
+            
+            </a-image>
+            
+            
+            <a-image id="eddieBarkmanBubble" src="#eddieBubble" width="4" height="1" position="0 1000 1.5" rotation="0 120 0">
+
+            
+            <a-animation begin="200, aboutHover" attribute="position" from="0 1000 1.5" to="-3 2.1 1.5" dur="400" easing="ease-out" fill="both" repeat="0"></a-animation>
+            <a-animation begin="200, aboutHoverOff" attribute="position" from="-3 2.1 1.5" to="0 1000 1.5" dur="400" easing="ease-out" fill="both" repeat="0"></a-animation>
+
+            
+            </a-image>
+            
+             <a-image id="artistBubble" src="#artBubble" width="3" height="0.6" position="-5 0 -1000" rotation="0 120 0">
+            
+            <a-animation begin="900, aboutHover" attribute="position" from="-5 0 -1000" to="-5 0 -0.9" dur="400" easing="ease-out" fill="both" repeat="0"></a-animation>
+            <a-animation begin="200, aboutHoverOff" attribute="position" from="-5 0 -0.9" to="-5 0 1000" dur="400" easing="ease-out" fill="both" repeat="0"></a-animation>
+            
+            </a-image>
+            
+            
+             <a-image id="goLeft" src="#leftArrow" width="0.5" height="0.5" position="-1 0 1000" rotation="0 120 0">
+            <a-animation begin="2000, aboutHover" attribute="position" from="-1 0 1000" to="-1 0 1.6" dur="400" easing="ease-out" fill="both" repeat="0"></a-animation>
+            <a-animation begin="200, aboutHoverOff" attribute="position" from="-1 0 1.6" to="-1 0 1000" dur="400" easing="ease-out" fill="both" repeat="0"></a-animation>
+            
+            
+            </a-image>
+                
+                
+                
+
+            <a-image src="#aboutMeText" width="8" height="8" position="5 0 3" rotation="0 -120 0"></a-image>
+
+
+            <a-sky src="#stars">
+
+
+                <a-animation attribute="rotation" to="0 360 0" dur="150000" easing="linear" fill="forwards" repeat="indefinite">
+                </a-animation>
+
+
+            </a-sky>
+
+            <a-sky src="#stars">
+
+
+                <a-animation attribute="rotation" to="0 -360 0" dur="150000" easing="linear" fill="forwards" repeat="indefinite">
+                </a-animation>
+
+
+            </a-sky>
+
+   <a-image id="aboutMeBubble" src="#aboutBubble" height="0.7" width="2" position="-1.05 -15 -2.7" rotation="0 0 0" visibility="true">
+       
+                       <a-animation begin="1000, aboutBubbleOpen" attribute="position" from="-1.05 -15 -2.7" to="-1.05 -0.1 -2.7" dur="1200" easing="ease-out" fill="forwards" repeat="0"></a-animation>
+                <a-animation begin="aboutBubbleClose" attribute="position" from="-1.05 -0.1 -2.7" to="-1.05 -15 -2.7" dur="1200" easing="ease-out" fill="forwards" repeat="0"></a-animation>
+
+            </a-image>
+            
+            
+            
+        </a-entity>
+
+
+
+        <!--Third Scene-->
+        <a-entity id="scene3" visible="false">
+
+
+            <a-sky src="#stars">
+
+
+                <a-animation attribute="rotation" to="0 360 0" dur="150000" easing="linear" fill="forwards" repeat="indefinite">
+                </a-animation>
+
+
+            </a-sky>
+
+            <a-sky src="#stars">
+
+
+                <a-animation attribute="rotation" to="0 -360 0" dur="150000" easing="linear" fill="forwards" repeat="indefinite">
+                </a-animation>
+
+
+            </a-sky>
+            
+            <a-image id="portBubble" src="#portfolioBubble" height="0.5" width="3" position="0 -15 -2.7" rotation="0 0 0" visibility="false">
+                <a-animation begin="portBubbleOpen" attribute="position" from="0 -15 -2.7" to="0 -0.2 -2.7" dur="1200" easing="ease-out" fill="forwards" repeat="0"></a-animation>
+                <a-animation begin="portBubbleClose" attribute="position" from="0 -0.2 -2.7" to="0 -15 -2.7" dur="1200" easing="ease-out" fill="forwards" repeat="0"></a-animation>
+            </a-image>
+
+            <a-entity id="portMenu" visible="true" position="0 0 0">
+
+                <a-animation begin="portMenuInactive" attribute="position" from="0 0 0" to="0 -15 0" dur="800" easing="ease-in" fill="forwards" repeat="0"></a-animation>
+
+                <a-animation begin="portMenuActive" attribute="position" from="0 -15 0" to="0 0 0" dur="1000" easing="ease-out" fill="forwards" repeat="0"></a-animation>
+
+                <a-image id="illustrationPortButton" src="#illustrationIcon" height="0.65" width="0.5" position="-1 0.5 1.2" rotation="0 180 0" visibility="true">
+
+                </a-image>
+
+
+                <a-image id="mobilePortButton" src="#mobileIcon" height="0.65" width="0.5" position="1 0.5 1.2" rotation="0 180 0" visibility="true">
+
+                </a-image>
+
+
+
+                <a-image id="websitePortButton" src="#webIcon" height="0.65" width="0.5" position="0 0.5 1.2" rotation="0 180 0" visibility="true">
+                </a-image>
+
+            </a-entity>
+            
+            <!--Website Portfolio Images-->
+            <a-entity id="portfolioWebPages" visible="false" : position="0 -15 0" easing="ease-out">
+                <a-animation begin="webPageActive" attribute="position" from="0 -15 0" to="0 0.3 0" dur="1000" easing="linear" fill="forwards" repeat="0"></a-animation>
+                <a-animation begin="webPageInActive" attribute="position" from="0 0.3 0" to="0 -15 0" dur="1000" easing="linear" fill="forwards" repeat="0"></a-animation>
+                <a-animation attribute="rotation" to="0 -360 0" dur="205000" easing="linear" fill="forwards" repeat="indefinite"></a-animation>
+
+                <a-curvedimage id="milkySite" src="#site1" height="3.0" radius="4.7" theta-length="72" rotation="0 0 0" scale="0.8 0.7 0.8"></a-curvedimage>
+
+                <a-curvedimage src="#site2" height="3.0" radius="4.7" theta-length="72" rotation="0 90 0" scale="0.8 0.7 0.8"></a-curvedimage>
+
+                <a-curvedimage src="#site5" height="3.0" radius="4.7" theta-length="72" rotation="0 180 0" scale="0.8 0.7 0.8"></a-curvedimage>
+
+                <a-curvedimage src="#site4" height="3.0" radius="4.7" theta-length="72" rotation="0 270 0" scale="0.8 0.7 0.8"></a-curvedimage>
+
+                </a-image>
+
+            </a-entity>
+            
+            <!--Mobile Portfolio Images-->
+            <a-entity id="portfolioMobilePages" visible="false" : position="0 -15 0" easing="ease-out">
+                <a-animation begin="mobilePageActive" attribute="position" from="0 -15 0" to="0 0.3 0" dur="1000" easing="linear" fill="forwards" repeat="0"></a-animation>
+                <a-animation begin="mobilePageInActive" attribute="position" from="0 0.3 0" to="0 -15 0" dur="1000" easing="linear" fill="forwards" repeat="0"></a-animation>
+                <a-animation attribute="rotation" to="0 -360 0" dur="205000" easing="linear" fill="forwards" repeat="indefinite"></a-animation>
+
+                <a-curvedimage src="#mobile1" height="2.0" radius="1.5" theta-length="42" rotation="0 0 0" scale="0.8 0.7 0.8"></a-curvedimage>
+
+                <a-curvedimage src="#mobile2" height="2.0" radius="1.5" theta-length="42" rotation="0 60 0" scale="0.8 0.7 0.8"></a-curvedimage>
+
+                <a-curvedimage src="#mobile3" height="2.0" radius="1.5" theta-length="42" rotation="0 120 0" scale="0.8 0.7 0.8"></a-curvedimage>
+
+                <a-curvedimage src="#mobile4" height="2.0" radius="1.5" theta-length="42" rotation="0 180 0" scale="0.8 0.7 0.8"></a-curvedimage>
+                
+                <a-curvedimage src="#mobile5" height="2.0" radius="1.5" theta-length="42" rotation="0 240 0" scale="0.8 0.7 0.8"></a-curvedimage>
+                
+                <a-curvedimage src="#mobile6" height="2.0" radius="1.5" theta-length="42" rotation="0 300 0" scale="0.8 0.7 0.8"></a-curvedimage>
+
+            </a-entity>
+        
+            <!--Illustration Portfolio Images-->
+            <a-entity id="portfolioIllustrationPages" visible="false" : position="0 -15 0" easing="ease-out">
+                <a-animation begin="illustrationPageActive" attribute="position" from="0 -15 0" to="0 0 0.4 0" dur="1000" easing="linear" fill="forwards" repeat="0"></a-animation>
+                <a-animation begin="illustrationPageInActive" attribute="position" from="0 0.4 0" to="0 -15 0" dur="1000" easing="linear" fill="forwards" repeat="0"></a-animation>
+                <a-animation attribute="rotation" to="0 -360 0" dur="205000" easing="linear" fill="forwards" repeat="indefinite"></a-animation>
+
+<!--
+                <a-curvedimage src="#illustration1" height="6.0" radius="5.5" theta-length="42" rotation="0 0 0" scale="0.8 0.7 0.8"></a-curvedimage>
+
+                <a-curvedimage src="#illustration2" height="6.0" radius="5.5" theta-length="42" rotation="0 45 0" scale="0.8 0.7 0.8"></a-curvedimage>
+
+                <a-curvedimage src="#illustration3" height="6.0" radius="5.5" theta-length="42" rotation="0 90 0" scale="0.8 0.7 0.8"></a-curvedimage>
+
+                <a-curvedimage src="#illustration4" height="6.0" radius="5.5" theta-length="42" rotation="0 135 0" scale="0.8 0.7 0.8"></a-curvedimage>
+                
+                <a-curvedimage src="#illustration5" height="6.0" radius="5.5" theta-length="42" rotation="0 180 0" scale="0.8 0.7 0.8"></a-curvedimage>
+                
+                <a-curvedimage src="#illustration6" height="5.0" radius="5.5" theta-length="42" rotation="0 225 0" scale="0.8 0.7 0.8"></a-curvedimage>
+                
+                <a-curvedimage src="#illustration7" height="3.0" radius="5.5" theta-length="42" rotation="0 270 0" scale="0.8 0.7 0.8"></a-curvedimage>
+                
+                <a-curvedimage src="#illustration8" height="3.0" radius="5.5" theta-length="42" rotation="0 315 0" scale="0.8 0.7 0.8"></a-curvedimage>
+-->
+
+
+                <a-curvedimage src="#illustration2" height="5.0" radius="4.8" theta-length="42" rotation="0 0 0" scale="0.8 0.7 0.8"></a-curvedimage>
+
+                <a-curvedimage src="#illustration3" height="5.0" radius="4.8" theta-length="42" rotation="0 90 0" scale="0.8 0.7 0.8"></a-curvedimage>
+
+                <a-curvedimage src="#illustration4" height="5.0" radius="4.8" theta-length="42" rotation="0 180 0" scale="0.8 0.7 0.8"></a-curvedimage>
+                
+                <a-curvedimage src="#illustration5" height="5.8.0" radius="4.8" theta-length="42" rotation="0 270 0" scale="0.8 0.7 0.8"></a-curvedimage>
+
+
+            </a-entity>
+
+
+            <a-entity id="closeButtonMenu" visible="false" position="0 -15 0">
+                <!--Close Button Entity-->
+
+                <a-animation begin="closeButtonActive" attribute="position" from="0 -15 0" to="0 0 0" dur="1200" easing="linear" fill="forwards" repeat="0"></a-animation>
+
+                <a-animation begin="closeButtonInactive" attribute="position" from="0 0 0" to="0 -15 0" dur="1200" easing="linear" fill="forwards" repeat="0"></a-animation>
+                <a-image id="closeButton" src="#closeButtonImg" height="1" width="1" position="0.5 -1.5 -3" rotation="-60 0 0" visibility="true">
+                    <a-animation begin="closeButtonHover" attribute="position" from="0.5 -1.5 -3" to="0.5 -1.5 -2.9" dur="200" easing="linear" fill="forwards" repeat="0"></a-animation>
+                    <a-animation begin="closeButtonNoHover" attribute="position" from="0.5 -1.5 -2.9" to="0.5 -1.5 -3" dur="200" easing="linear" fill="forwards" repeat="0"></a-animation>
+                </a-image>
+
+                <a-image id="closeButton2" src="#closeButtonImg" height="1" width="1" position="-0.5 -1.5 3" rotation="-60 180 0" visibility="true">
+
+                    <a-animation begin="closeButtonHover" attribute="position" from="-0.5 -1.5 3" to="-0.5 -1.5 2.9" dur="200" easing="linear" fill="forwards" repeat="0"></a-animation>
+                    <a-animation begin="closeButtonNoHover" attribute="position" from="-0.5 -1.5 2.9" to="-0.5 -1.5 3" dur="200" easing="linear" fill="forwards" repeat="0"></a-animation>
+            </a-entity>
+
+        </a-entity>
+
+
+
+        <!--Menu-->
+        <a-entity id="menu" visible="false">
+
+            <a-animation begin="menuClose" dur="1400" easing="ease-out" attribute="position" to="0 -15 0"></a-animation>
+            <a-animation begin="menuAppear" dur="1400" easing="ease-out" attribute="position" to="0 0 0"></a-animation>
+
+            <a-image id="button2" src="#portfolioIcon" height="1" width="0.75" position="0 -10 -2.6" rotation="0 0 0">
+                <a-animation begin="1000, menuOpen" dur="1400" easing="ease-out" attribute="position" from="0 -10 -2.6" to="0 -1 -2.6"></a-animation>
+                <a-animation begin="1000, menuDown" dur="1400" easing="ease-out" attribute="position" from="0 -1 -2.6" to="0 -10 -2.6"></a-animation>
+                <a-animation begin="button2Enter" dur="500" attribute="position" from="0 -1 -2.6" to="0 -1 -2.7"></a-animation>
+                <a-animation begin="button2Leave" dur="500" attribute="position" from="0 -1 -2.7" to="0 -1 -2.6"></a-animation>
+            </a-image>
+            <a-image id="button3" src="#aboutVRIcon" height="1" width="0.75" position="1 -10 -2.6" rotation="0 0 0">
+                <a-animation begin="1000, menuOpen" dur="1800" easing="ease-out" attribute="position" from="1 -10 -2.6" to="1 -1 -2.6"></a-animation>
+                <a-animation begin="1000, menuDown" dur="1400" easing="ease-out" attribute="position" from="1 -1 -2.6" to="1 -10 -2.6"></a-animation>
+                <a-animation begin="button3Enter" dur="500" attribute="position" from="1 -1 -2.6" to="1 -1 -2.7"></a-animation>
+                <a-animation begin="button3Leave" dur="500" attribute="position" from="1 -1 -2.7" to="1 -1 -2.6"></a-animation>
+
+            </a-image>
+
+            <a-image id="button4" src="#aboutIcon" height="1" width="0.75" position="-1 -10 -2.6" rotation="0 0 0">
+                <a-animation begin="1000, menuOpen" dur="1000" easing="ease-out" attribute="position" from="0 -10 -2" to="-1 -1 -2.6"></a-animation>
+                <a-animation begin="1000, menuDown" dur="1400" easing="ease-out" attribute="position" from="-1 -1 -2.6" to="0 -10 -2"></a-animation>
+                <a-animation begin="button4Enter" dur="500" attribute="position" from="-1 -1 -2.6" to="-1 -1 -2.7"></a-animation>
+                <a-animation begin="button4Leave" dur="500" attribute="position" from="-1 -1 -2.7" to="-1 -1 -2.6"></a-animation>
+
+            </a-image>
+
+
+        </a-entity>
+<a-image id="resetButton" src="#resetImg" height="1" width="1" position="0 -3 " rotation="-80 0 0"></a-image>
+
+    </a-scene>
+
+
+
+
+    <script>
+        //Hi there, reading this? I'm really really new to javascript and I'm sure it looks horrible. Hopefully my comments help it make sense.
+
+        var s1 = document.querySelector('#scene1');
+        var s2 = document.querySelector('#scene2');
+        var s3 = document.querySelector('#scene3');
+        var s4 = document.querySelector('#scene4');
+        var menu = document.querySelector('#menu');
+        var s2b = document.querySelector('#s2button');
+        var s3b = document.querySelector('#s3button');
+        var teleporter = document.querySelector('#teleporter');
+        var portfolioWebPage = document.querySelector('#portfolioWebPages')
+        var portfolioWebButton = document.querySelector('#websitePortButton')
+        var delay = 1000; //1 seconds
+        var delay2 = 2000; //2 seconds
+        
+
+        //Little circle clicky timing thing
+        document.querySelector('#button1').addEventListener('mouseenter', function () {
+            document.querySelector('#clickerShape').emit('clickStart');
+            document.querySelector('#button1').emit('button1Enter');
+        });
+        document.querySelector('#button1').addEventListener('mouseleave', function () {
+            document.querySelector('#clickerShape').emit('clickEnd');
+            document.querySelector('#button1').emit('button1Leave');
+        });
+
+
+        document.querySelector('#button2').addEventListener('mouseenter', function () {
+            document.querySelector('#clickerShape').emit('clickStart');
+            document.querySelector('#button2').emit('button2Enter');
+        });
+        document.querySelector('#button2').addEventListener('mouseleave', function () {
+            document.querySelector('#clickerShape').emit('clickEnd');
+            document.querySelector('#button2').emit('button2Leave');
+        });
+
+        document.querySelector('#button3').addEventListener('mouseenter', function () {
+            document.querySelector('#clickerShape').emit('clickStart');
+            document.querySelector('#button3').emit('button3Enter');
+        });
+        document.querySelector('#button3').addEventListener('mouseleave', function () {
+            document.querySelector('#clickerShape').emit('clickEnd');
+            document.querySelector('#button3').emit('button3Leave');
+        });
+
+
+        document.querySelector('#button4').addEventListener('mouseenter', function () {
+            document.querySelector('#clickerShape').emit('clickStart');
+            document.querySelector('#button4').emit('button4Enter');
+        });
+        document.querySelector('#button4').addEventListener('mouseleave', function () {
+            document.querySelector('#clickerShape').emit('clickEnd');
+            document.querySelector('#button4').emit('button4Leave');
+        });
+
+        
+        //VR Pic Rotation
+        
+         document.querySelector('#VRPic').addEventListener('mouseenter', function () {
+            document.querySelector('#VRPic').emit('imageGlance');
+        
+        });
+        document.querySelector('#VRPic').addEventListener('mouseleave', function () {
+               document.querySelector('#VRPic').emit('imageGlanceReverse');
+        });
+        
+        
+        //About Hover Pic
+            document.querySelector('#redPortrait').addEventListener('mouseenter', function () {
+            document.querySelector('#eddieBarkmanBubble').emit('aboutHover');
+            document.querySelector('#artistBubble').emit('aboutHover');
+            document.querySelector('#goLeft').emit('aboutHover');
+        
+        });
+        document.querySelector('#redPortrait').addEventListener('mouseleave', function () {
+//            document.querySelector('#eddieBarkmanBubble').emit('aboutHoverOff');
+//            document.querySelector('#artistBubble').emit('aboutHoverOff');
+//            document.querySelector('#goLeft').emit('aboutHoverOff');
+        });
+        
+
+
+
+        //Start Button 1 script
+        document.querySelector('#button1').addEventListener('click', function () {
+            //Activates teleporting plane
+            teleporter.setAttribute('visible', 'true');
+            document.querySelector('#teleporter').emit('teleport');
+
+            //Gives time for plane animation to work before changing scenes
+            setTimeout(function () {
+
+                document.querySelector('#teleporter').emit('teleport2');
+                s2.setAttribute('visible', 'true');
+                s1.setAttribute('visible', 'false');
+                menu.setAttribute('visible', 'true');
+                document.querySelector('#button2').emit('menuOpen');
+                document.querySelector('#button3').emit('menuOpen');
+                document.querySelector('#button4').emit('menuOpen');
+                document.querySelector('#VRBubble').emit('VRBubbleOpen');
+                document.querySelector('#startImg').emit('end');
+                document.querySelector('#portMenu').emit('portMenuActive');
+                document.querySelector('#menu').emit('menuAppear');
+            }, delay);
+
+            //Sets teleporter plane visibility back to false and starts animation for text in new scene
+            setTimeout(function () {
+                teleporter.setAttribute('visible', 'false');
+                document.querySelector('#startImg').emit('start');
+
+            }, delay2);
+        });
+
+
+        //Start Portfolio Button script
+        document.querySelector('#button2').addEventListener('click', function () {
+            //Activates teleporting plane
+            teleporter.setAttribute('visible', 'true');
+            document.querySelector('#teleporter').emit('teleport');
+            document.querySelector('#portBubble').setAttribute('visible', 'true');
+
+            //Gives time for plane animation to work before changing scenes
+            setTimeout(function () {
+
+                document.querySelector('#teleporter').emit('teleport2');
+                s3.setAttribute('visible', 'true');
+                s2.setAttribute('visible', 'false');
+                 s4.setAttribute('visible', 'false');
+                document.querySelector('#VRBubble').emit('VRBubbleClose');
+                document.querySelector('#portBubble').emit('portBubbleClose');
+            document.querySelector('#portBubble').emit('portBubbleOpen');
+                document.querySelector('#startImg').emit('end');
+                
+                
+            }, delay);
+
+            //Sets teleporter plane visibility back to false and starts animation for text in new scene
+            setTimeout(function () {
+                teleporter.setAttribute('visible', 'false');
+                document.querySelector('#startImg').emit('start');
+                document.querySelector('#VRBubble').emit('VRBubbleClose');
+                document.querySelector('#aboutMeBubble').emit('aboutBubbleClose');
+                document.querySelector('#eddieBarkmanBubble').emit('aboutHoverOff');
+            document.querySelector('#artistBubble').emit('aboutHoverOff');
+            document.querySelector('#goLeft').emit('aboutHoverOff');
+                
+                
+
+            }, delay2);
+        });
+        
+        
+                //Start Button about VR Button
+        document.querySelector('#button3').addEventListener('click', function () {
+            //Activates teleporting plane
+            teleporter.setAttribute('visible', 'true');
+            document.querySelector('#teleporter').emit('teleport');
+            document.querySelector('#VRBubble').emit('VRBubbleOpen');
+            
+
+            //Gives time for plane animation to work before changing scenes
+            setTimeout(function () {
+
+                document.querySelector('#teleporter').emit('teleport2');
+                s3.setAttribute('visible', 'false');
+                 s4.setAttribute('visible', 'false');
+                s2.setAttribute('visible', 'true');
+                document.querySelector('#aboutMeBubble').emit('aboutBubbleClose');
+                   document.querySelector('#VRBubble').emit('VRBubbleClose');
+                document.querySelector('#startImg').emit('end');
+                
+            document.querySelector('#eddieBarkmanBubble').emit('aboutHoverOff');
+            document.querySelector('#artistBubble').emit('aboutHoverOff');
+            document.querySelector('#goLeft').emit('aboutHoverOff');
+            }, delay);
+
+            //Sets teleporter plane visibility back to false and starts animation for text in new scene
+            setTimeout(function () {
+                teleporter.setAttribute('visible', 'false');
+                document.querySelector('#startImg').emit('start');
+
+            }, delay2);
+        });
+
+        
+                
+                //Start Button About Me Button
+        document.querySelector('#button4').addEventListener('click', function () {
+            //Activates teleporting plane
+            teleporter.setAttribute('visible', 'true');
+            document.querySelector('#teleporter').emit('teleport');
+
+            
+
+            //Gives time for plane animation to work before changing scenes
+            setTimeout(function () {
+
+                document.querySelector('#teleporter').emit('teleport2');
+                s4.setAttribute('visible', 'true');
+                s2.setAttribute('visible', 'false');
+                s3.setAttribute('visible', 'false');
+                document.querySelector('#portBubble').emit('portBubbleClose');
+                document.querySelector('#VRBubble').emit('VRBubbleClose');
+                document.querySelector('#aboutMeBubble').emit('aboutBubbleClose');
+                document.querySelector('#aboutMeBubble').emit('aboutBubbleOpen');
+                document.querySelector('#startImg').emit('end');
+                
+            }, delay);
+
+            //Sets teleporter plane visibility back to false and starts animation for text in new scene
+            setTimeout(function () {
+                teleporter.setAttribute('visible', 'false');
+                document.querySelector('#startImg').emit('start');
+                
+
+            }, delay2);
+        });
+
+
+        //Website Portfolio Script
+
+        document.querySelector('#websitePortButton').addEventListener('mouseenter', function () {
+            document.querySelector('#clickerShape').emit('clickStart');
+
+        });
+
+        document.querySelector('#websitePortButton').addEventListener('mouseleave', function () {
+            document.querySelector('#clickerShape').emit('clickEnd');
+        });
+
+        document.querySelector('#websitePortButton').addEventListener('click', function () {
+            portfolioWebPage.setAttribute('visible', 'true');
+            document.querySelector('#portfolioWebPages').emit('webPageActive');
+            document.querySelector('#portMenu').emit('portMenuInactive');
+            menu.emit('menuClose');
+            document.querySelector('#portBubble').emit('portBubbleClose');
+            document.querySelector('#startImg').emit('end');
+
+            document.querySelector('#closeButtonMenu').setAttribute('visible', 'true');
+            document.querySelector('#closeButtonMenu').emit('closeButtonActive');
+
+            setTimeout(function () {
+                document.querySelector('#portMenu').setAttribute('visible', 'false');
+                menu.setAttribute('visible', 'false')
+            }, 500);
+        });
+        
+        
+        //Mobile Portfolio Script
+
+        document.querySelector('#mobilePortButton').addEventListener('mouseenter', function () {
+            document.querySelector('#clickerShape').emit('clickStart');
+
+        });
+
+        document.querySelector('#mobilePortButton').addEventListener('mouseleave', function () {
+            document.querySelector('#clickerShape').emit('clickEnd');
+        });
+
+        document.querySelector('#mobilePortButton').addEventListener('click', function () {
+            document.querySelector('#portfolioMobilePages').setAttribute('visible', 'true');
+            document.querySelector('#portfolioMobilePages').emit('mobilePageActive');
+            document.querySelector('#portMenu').emit('portMenuInactive');
+            menu.emit('menuClose');
+            document.querySelector('#portBubble').emit('portBubbleClose');
+            
+
+            document.querySelector('#closeButtonMenu').setAttribute('visible', 'true');
+            document.querySelector('#closeButtonMenu').emit('closeButtonActive');
+
+            setTimeout(function () {
+                document.querySelector('#portMenu').setAttribute('visible', 'false');
+                menu.setAttribute('visible', 'false')
+            }, 500);
+        });
+        
+        
+        //Mobile Illustration Script
+
+        document.querySelector('#illustrationPortButton').addEventListener('mouseenter', function () {
+            document.querySelector('#clickerShape').emit('clickStart');
+
+        });
+
+        document.querySelector('#illustrationPortButton').addEventListener('mouseleave', function () {
+            document.querySelector('#clickerShape').emit('clickEnd');
+        });
+
+        document.querySelector('#illustrationPortButton').addEventListener('click', function () {
+            document.querySelector('#portfolioIllustrationPages').setAttribute('visible', 'true');
+            document.querySelector('#portfolioIllustrationPages').emit('illustrationPageActive');
+            document.querySelector('#portMenu').emit('portMenuInactive');
+            menu.emit('menuClose');
+            document.querySelector('#portBubble').emit('portBubbleClose');
+
+            document.querySelector('#closeButtonMenu').setAttribute('visible', 'true');
+            document.querySelector('#closeButtonMenu').emit('closeButtonActive');
+
+            setTimeout(function () {
+                document.querySelector('#portMenu').setAttribute('visible', 'false');
+                menu.setAttribute('visible', 'false')
+            }, 500);
+        });
+
+        
+        //Close Button 1
+        document.querySelector('#closeButton').addEventListener('click', function () {
+            document.querySelector('#portfolioWebPages').emit('webPageInActive');
+            document.querySelector('#portfolioMobilePages').emit('mobilePageInActive');
+            document.querySelector('#portfolioIllustrationPages').emit('illustrationPageInActive');
+            document.querySelector('#closeButtonMenu').emit('closeButtonInactive');
+            menu.emit('menuAppear');
+            document.querySelector('#portBubble').emit('portBubbleOpen');
+
+            setTimeout(function () {
+                portfolioWebPage.setAttribute('visible', 'false');
+                document.querySelector('#portfolioIllustrationPages').setAttribute('visible', 'false');
+                document.querySelector('#portfolioMobilePages').setAttribute('visible', 'false');
+                document.querySelector('#closeButtonMenu').setAttribute('visible', 'false');
+                document.querySelector('#portMenu').emit('portMenuActive');
+                menu.setAttribute('visible', 'true')
+            }, 500);
+        });
+
+
+        document.querySelector('#closeButton').addEventListener('mouseenter', function () {
+            document.querySelector('#clickerShape').emit('clickStart');
+            document.querySelector('#closeButton').emit('closeButtonHover');
+
+        });
+
+        document.querySelector('#closeButton').addEventListener('mouseleave', function () {
+            document.querySelector('#clickerShape').emit('clickEnd');
+            document.querySelector('#closeButton').emit('closeButtonNoHover');
+            document.querySelector('#portMenu').setAttribute('visible', 'true');
+        });
+        
+        
+        //Close Button 2
+        document.querySelector('#closeButton2').addEventListener('click', function () {
+            document.querySelector('#portfolioWebPages').emit('webPageInActive');
+            document.querySelector('#portfolioMobilePages').emit('mobilePageInActive');
+            document.querySelector('#portfolioIllustrationPages').emit('illustrationPageInActive');
+            document.querySelector('#closeButtonMenu').emit('closeButtonInactive');
+            menu.emit('menuAppear');
+            document.querySelector('#portMenu').setAttribute('visible', 'true');
+            document.querySelector('#portMenu').emit('portMenuActive');
+            document.querySelector('#portBubble').emit('portBubbleOpen');
+
+            setTimeout(function () {
+                portfolioWebPage.setAttribute('visible', 'false');
+                document.querySelector('#portfolioIllustrationPages').setAttribute('visible', 'false');
+                document.querySelector('#portfolioMobilePages').setAttribute('visible', 'false');
+                document.querySelector('#closeButtonMenu').setAttribute('visible', 'false');
+                menu.setAttribute('visible', 'true')
+            }, 500);
+        });
+
+
+        document.querySelector('#closeButton2').addEventListener('mouseenter', function () {
+            document.querySelector('#clickerShape').emit('clickStart');
+            document.querySelector('#closeButton2').emit('closeButtonHover');
+
+        });
+
+        document.querySelector('#closeButton2').addEventListener('mouseleave', function () {
+            document.querySelector('#clickerShape').emit('clickEnd');
+            document.querySelector('#closeButton2').emit('closeButtonNoHover');
+        });
+        //End Web Port Script
+        
+        
+        
+                   document.querySelector('#resetButton').addEventListener('click', function () {
+               
+            teleporter.setAttribute('visible', 'true');
+            document.querySelector('#teleporter').emit('teleport');
+
+            //Gives time for plane animation to work before changing scenes
+            setTimeout(function () {
+
+                document.querySelector('#teleporter').emit('teleport2');
+                s2.setAttribute('visible', 'false');
+                s3.setAttribute('visible', 'false');
+                s4.setAttribute('visible', 'false');
+                s1.setAttribute('visible', 'true');
+                menu.setAttribute('visible', 'false');
+                document.querySelector('#VRBubble').emit('VRBubbleClose');
+                document.querySelector('#aboutMeBubble').emit('aboutBubbleClose');
+                document.querySelector('#aboutMeBubble').emit('resetBubbleClose');
+                document.querySelector('#portfolioWebPages').emit('webPageInActive');
+            document.querySelector('#portfolioMobilePages').emit('mobilePageInActive');
+            document.querySelector('#portfolioIllustrationPages').emit('illustrationPageInActive');
+            document.querySelector('#closeButtonMenu').emit('closeButtonInactive');
+            document.querySelector('#startImg').emit('end');
+                        document.querySelector('#portMenu').setAttribute('visible', 'true');
+            document.querySelector('#portMenu').emit('portMenuActive');
+            document.querySelector('#portBubble').emit('portBubbleOpen');
+                document.querySelector('#menu').emit('menuAppear');
+                document.querySelector('#portfolioWebPages').setAttribute('visible', 'false');
+                document.querySelector('#portfolioIllustrationPages').setAttribute('visible', 'false');
+                document.querySelector('#portfolioMobilePages').setAttribute('visible', 'false');
+                 document.querySelector('#closeButtonMenu').setAttribute('visible', 'false')
+                document.querySelector('#button2').emit('menuDown');
+                document.querySelector('#button3').emit('menuDown');
+                document.querySelector('#button4').emit('menuDown');
+                document.querySelector('#eddieBarkmanBubble').emit('aboutHoverOff');
+            document.querySelector('#artistBubble').emit('aboutHoverOff');
+            document.querySelector('#goLeft').emit('aboutHoverOff');
+            }, delay);
+
+            //Sets teleporter plane visibility back to false and starts animation for text in new scene
+            setTimeout(function () {
+                teleporter.setAttribute('visible', 'false');
+                document.querySelector('#startImg').emit('start');
+
+            }, delay2);
+               
+         });
+    </script>
+
+</body>
+
+</html>
